@@ -1,4 +1,4 @@
-int amount = 300;
+int amount = 50;
 int[] x = new int[amount];
 int[] y = new int[amount];
 int[] z = new int[amount];
@@ -20,7 +20,8 @@ void setup() {
   background(0);
   noFill();
   stroke(255);
-  strokeWeight(1);
+  colorMode(HSB, 100);
+  strokeWeight(2);
   for(int i = 0; i<amount; i++) {
     x[i] = int(random(c-150, c-120));
     y[i] = int(random(130, 150));
@@ -34,7 +35,7 @@ void setup() {
     x3[i] = int(random(-85, -65));
     y3[i] = int(random(-150, -130));
     z3[i] = int(random(-85, -65));
-    c += 1;
+    c += 6;
   }
 }
 void draw() {
@@ -50,5 +51,24 @@ void draw() {
     point(x1[i], y1[i], z1[i]);
     point(x2[i], y2[i], z2[i]);
     point(x3[i], y3[i], z3[i]);
+    //line(x[i], y[i], z[i], x3[i], y3[i], z3[i]);
+    //line(x1[i], y1[i], z1[i], x3[i], y3[i], z3[i]);
+    //line(x2[i], y2[i], z2[i], x3[i], y3[i], z3[i]);
+    //line(x[i], y[i], z[i], x1[i], y1[i], z1[i]);
+  }
+  
+  for(int i = 0; i < c1; i++) {
+    stroke(c2, 80, 80, 20);
+    line(x[i], y[i], z[i], x3[i], y3[i], z3[i]);
+    line(x1[i], y1[i], z1[i], x3[i], y3[i], z3[i]);
+    line(x2[i], y2[i], z2[i], x3[i], y3[i], z3[i]);
+    line(x[i], y[i], z[i], x1[i], y1[i], z1[i]);
+  }
+  if (c1 < 50){
+  c1 += 1;
+  }
+  c2 += 1;
+  if (c2 > 100) {
+    c2 = 0;
   }
 }
