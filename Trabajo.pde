@@ -14,6 +14,7 @@ int[] z3 = new int[amount];
 float c = 0;
 float c1 = 0;
 float c2 = 0;
+float c3 = 0;
 
 void setup() {
   size(700, 600, P3D);
@@ -57,18 +58,26 @@ void draw() {
     //line(x[i], y[i], z[i], x1[i], y1[i], z1[i]);
   }
   
+  c2 = 0;
   for(int i = 0; i < c1; i++) {
-    stroke(c2, 80, 80, 20);
+    //stroke(c2, 80, 80, 20);
     line(x[i], y[i], z[i], x3[i], y3[i], z3[i]);
     line(x1[i], y1[i], z1[i], x3[i], y3[i], z3[i]);
     line(x2[i], y2[i], z2[i], x3[i], y3[i], z3[i]);
     line(x[i], y[i], z[i], x1[i], y1[i], z1[i]);
+    stroke(c2, 80, 80, 20);
+    //c2 += 1;
+    if (c2 < 100) {
+    c2 += 1;
+    }
   }
+  
+  
   if (c1 < 50){
   c1 += 1;
   }
-  c2 += 1;
-  if (c2 > 100) {
-    c2 = 0;
+  
+  if (c3 < amount){
+    c3 += 1;
   }
 }
