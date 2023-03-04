@@ -1,4 +1,4 @@
-int amount = 50;
+/*int amount = 50;
 int[] x = new int[amount];
 int[] y = new int[amount];
 int[] z = new int[amount];
@@ -80,4 +80,4 @@ void draw() {
   if (c3 < amount){
     c3 += 1;
   }
-}
+}*/
