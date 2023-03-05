@@ -11,8 +11,19 @@ PVector[][] variacion2;
 PVector[][] puntos;
 PVector[][] puntos_esfera;
 PVector[][] puntos_linea;
-float[] shape2 = {8, 60, 100, 30, 2, 10, 10, 10};
-float[] shape1 = {7, 0.2, 1.7, 1.7, 7, 0.2, 1.7, 1.7};
+float[][] shapes1 = {{7, 0.2, 1.7, 1.7, 7, 0.2, 1.7, 1.7},
+                     {5, 0.1, 1.7, 1.7, 1, 0.3, 0.5, 0.5},
+                     {5.2, 0.04, 1.7, 1.7, 0, 1, 1, 1},
+                     {1.167, 0.3, 0.3, 0.3, 0, 1, 1, 1}};
+                     
+float[][] shapes2 = {{8, 60, 100, 30, 2, 10, 10, 10},
+                     {1, 37.41, -0.24, 19, 4, 100, 100, 100},
+                     {4, 100, 1, 1, 4, 1, 1, 1},
+                     {4, 100, 100, 100, 4, 100, 100, 100}};           
+                     
+                     
+float[] shape1;
+float[] shape2;
 
 float a = 1;
 float b = 1;
@@ -40,6 +51,9 @@ void setup() {
   puntos_linea = new PVector[total+1][total+1];
   variacion2 = new PVector[total+1][total+1];
   
+  shape1 = shapes1[int(random(-0.44, 3.49))];
+  shape2 = shapes2[int(random(-0.44, 3.49))];
+  
   float r = 200;
  for (int i = 0; i < total_esfera+1; i++) {
    float lat = map(i, 0, total_esfera, -HALF_PI, HALF_PI);
@@ -54,7 +68,6 @@ void setup() {
      y = random(y-variacion, y+variacion);
      z = random(z-variacion, z+variacion);
      puntos_esfera[i][j] = new PVector(x, y, z);
-     //puntos_linea[i][j] = new PVector(map(i,0,total_esfera,0,total), map(j,0,total_esfera,0,total));
    }
  }
  
