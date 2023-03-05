@@ -3,9 +3,11 @@ import peasy.*;
 PeasyCam cam;
 PImage img;
 float frame = 0;
-int total = 50;
-int total_esfera = 30;
+int total = 35;
+int total_esfera = 15;
 float variacion = 20;
+float variacion1 = 15;
+PVector[][] variacion2;
 PVector[][] puntos;
 PVector[][] puntos_esfera;
 PVector[][] puntos_linea;
@@ -36,6 +38,7 @@ void setup() {
   puntos = new PVector[total+1][total+1];
   puntos_esfera = new PVector[total_esfera+1][total_esfera+1];
   puntos_linea = new PVector[total+1][total+1];
+  variacion2 = new PVector[total+1][total+1];
   
   float r = 200;
  for (int i = 0; i < total_esfera+1; i++) {
@@ -58,22 +61,25 @@ void setup() {
  for (int i = 0; i < total + 1; i++) {
    for (int j = 0; j < total + 1; j++) {
      puntos_linea[i][j] = new PVector(map(i, 0, total, 0, total_esfera), map(j, 0, total, 0, total_esfera));
+     variacion2[i][j] = new PVector(random(-variacion1, variacion1), random(-variacion1, variacion1), random(-variacion1, variacion1));
    }
  }
+ 
 }
 
 void draw() {
  //background(0);
  background(img);
- //noFill();
+ 
  rotateY(frameCount / 100.0);
  rotateX(frameCount / 300.0);
  rotateZ(frameCount / 500.0);
  lights();
- //fill(map(cos(frame/10),-1,1,0,100), 100, map(sin(frame),-1,1,0,100));
+ 
  stroke(200,0,100);
  stroke(map(cos(frame/10),-1,1,0,100), 100, 100);
  strokeWeight(0.2);
+ 
  float[] shape0 = {map(sin(frame), -1, 1, shape1[0], shape2[0]),
                    map(sin(frame), -1, 1, shape1[1], shape2[1]),
                    map(sin(frame), -1, 1, shape1[2], shape2[2]),
@@ -122,9 +128,7 @@ void draw() {
   for (int i = 0; i<total; i++){
     for (int j = 0; j<total; j++) {
       PVector v = puntos[i][j];
-
       point(v.x, v.y, v.z);
-
     }
   }
   
@@ -134,21 +138,22 @@ stroke(0,0,100);
   for (int i = 0; i<total_esfera; i++){
     for (int j = 0; j<total_esfera; j++) {
       PVector v = puntos_esfera[i][j];
-      PVector v2 = puntos[int(puntos_linea[i][j].x)][int(puntos_linea[i][j].y)];
-      
       point(v.x, v.y, v.z);
-      
     }
   }
   
-//Lineas
+//Curvas
 for (int i = 0; i < total + 1; i++) {
    for (int j = 0; j < total + 1; j++) {
      //puntos_linea[i][j] = new PVector(map(i, 0, total, 0, total_esfera + 1), map(j, 0, total, 0, total_esfera + 1));
      PVector v = puntos[i][j];
      PVector v2 = puntos_esfera[int(puntos_linea[i][j].x)][int(puntos_linea[i][j].y)];
+     PVector va2 = variacion2[i][j];
      strokeWeight(0.2);
-     line(v.x, v.y, v.z, v2.x, v2.y, v2.z);
+     //line(v.x, v.y, v.z, v2.x, v2.y, v2.z);
+     noFill();
+     bezier(v.x, v.y, v.z, v.x + va2.x, v.y + va2.y, v.z + va2.z,
+           v2.x + va2.x, v2.y + va2.y, v2.z + va2.z, v2.x, v2.y, v2.z);
    }
  }
   
