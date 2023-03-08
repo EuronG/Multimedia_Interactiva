@@ -2,11 +2,11 @@ import peasy.*;
 
 PeasyCam cam;
 PImage img;
-float frame = 0;
+float frame = random(0, 10*PI);
 int total = 35;
 int total_esfera = 15;
 float variacion = 20;
-float variacion1 = 15;
+float variacion1 = random(0, 40);
 PVector[][] variacion2;
 PVector[][] puntos;
 PVector[][] puntos_esfera;
@@ -156,13 +156,14 @@ stroke(0,0,100);
   }
   
 //Curvas
+stroke(0,0,map(sin(frame), -1, 1, 0, 100));
 for (int i = 0; i < total + 1; i++) {
    for (int j = 0; j < total + 1; j++) {
      //puntos_linea[i][j] = new PVector(map(i, 0, total, 0, total_esfera + 1), map(j, 0, total, 0, total_esfera + 1));
      PVector v = puntos[i][j];
      PVector v2 = puntos_esfera[int(puntos_linea[i][j].x)][int(puntos_linea[i][j].y)];
      PVector va2 = variacion2[i][j];
-     strokeWeight(0.2);
+     strokeWeight(0.5);
      //line(v.x, v.y, v.z, v2.x, v2.y, v2.z);
      noFill();
      bezier(v.x, v.y, v.z, v.x + va2.x, v.y + va2.y, v.z + va2.z,
