@@ -5,18 +5,18 @@ PImage img;
 float frame = random(0, 10*PI);
 int total = 35;
 int total_esfera = 15;
-float variacion = 20;
-float variacion1 = random(0, 40);
-PVector[][] variacion2;
+float variacion = 20; //variacion puntos de esfera
+float variacion1 = random(0, 40); //variacion de la curva, 0 es recta y 40 es muy curva
+PVector[][] variacion2;  //Array para variar la curva
 PVector[][] puntos;
 PVector[][] puntos_esfera;
 PVector[][] puntos_linea;
-float[][] shapes1 = {{7, 0.2, 1.7, 1.7, 7, 0.2, 1.7, 1.7},
+float[][] shapes1 = {{7, 0.2, 1.7, 1.7, 7, 0.2, 1.7, 1.7}, //figras interiores
                      {5, 0.1, 1.7, 1.7, 1, 0.3, 0.5, 0.5},
                      {5.2, 0.04, 1.7, 1.7, 0, 1, 1, 1},
                      {1.167, 0.3, 0.3, 0.3, 0, 1, 1, 1}};
                      
-float[][] shapes2 = {{8, 60, 100, 30, 2, 10, 10, 10},
+float[][] shapes2 = {{8, 60, 100, 30, 2, 10, 10, 10},     //figuras exteriores
                      {1, 37.41, -0.24, 19, 4, 100, 100, 100},
                      {4, 100, 1, 1, 4, 1, 1, 1},
                      {4, 100, 100, 100, 4, 100, 100, 100}};           
@@ -44,7 +44,7 @@ void setup() {
   
   //size(2000,1993,P3D);
   fullScreen(P3D);
-  colorMode(HSB,100);
+  colorMode(HSB, 100);
   cam = new PeasyCam(this, 700);
   puntos = new PVector[total+1][total+1];
   puntos_esfera = new PVector[total_esfera+1][total_esfera+1];
@@ -54,6 +54,7 @@ void setup() {
   shape1 = shapes1[int(random(-0.44, 3.49))];
   shape2 = shapes2[int(random(-0.44, 3.49))];
   
+  //Creacion de la esfera
   float r = 200;
  for (int i = 0; i < total_esfera+1; i++) {
    float lat = map(i, 0, total_esfera, -HALF_PI, HALF_PI);
@@ -73,7 +74,7 @@ void setup() {
  
  for (int i = 0; i < total + 1; i++) {
    for (int j = 0; j < total + 1; j++) {
-     puntos_linea[i][j] = new PVector(map(i, 0, total, 0, total_esfera), map(j, 0, total, 0, total_esfera));
+     puntos_linea[i][j] = new PVector(map(i, 0, total, 0, total_esfera), map(j, 0, total, 0, total_esfera)); //para crear una cantidad de puntos esfera igual a la cantidad de puntos de la figura
      variacion2[i][j] = new PVector(random(-variacion1, variacion1), random(-variacion1, variacion1), random(-variacion1, variacion1));
    }
  }
@@ -124,7 +125,7 @@ void draw() {
    noFill();
  }
 
-//FIGURA
+//conexion de la FIGURA
   for (int i = 0; i<total; i++){
     beginShape(TRIANGLE_STRIP);
     for (int j = 0; j<total+1; j++) {
