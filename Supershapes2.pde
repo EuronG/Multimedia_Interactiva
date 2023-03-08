@@ -3,8 +3,9 @@ import peasy.*;
 PeasyCam cam;
 PImage img;
 float frame = random(0, 10*PI);
+float variframe = random(0.01, 0.05);
 int total = 35;
-int total_esfera = 15;
+int total_esfera = 25;
 float variacion = 20; //variacion puntos de esfera
 float variacion1 = random(0, 40); //variacion de la curva, 0 es recta y 40 es muy curva
 PVector[][] variacion2;  //Array para variar la curva
@@ -45,6 +46,7 @@ void setup() {
   //size(2000,1993,P3D);
   fullScreen(P3D);
   colorMode(HSB, 100);
+  noFill();
   cam = new PeasyCam(this, 700);
   puntos = new PVector[total+1][total+1];
   puntos_esfera = new PVector[total_esfera+1][total_esfera+1];
@@ -90,9 +92,9 @@ void draw() {
  rotateZ(frameCount / 500.0);
  lights();
  
- stroke(200,0,100);
+ //stroke(200,0,100);
  stroke(map(cos(frame/10),-1,1,0,100), 100, 100);
- strokeWeight(0.2);
+ strokeWeight(map(sin(frame), -1, 1, 5, 0));
  
  float[] shape0 = {map(sin(frame), -1, 1, shape1[0], shape2[0]),
                    map(sin(frame), -1, 1, shape1[1], shape2[1]),
@@ -118,12 +120,11 @@ void draw() {
    }
  }
  
- if (r < 150){
-   fill(map(cos(frame/10),-1,1,0,100), 100, 100);
-   stroke(map(cos(frame/10),-1,1,0,100), 100, 100);
+ /*if (r < 150){
+   //fill(map(cos(frame/10),-1,1,0,100), 100, 100);
  } else {
    noFill();
- }
+ }*/
 
 //conexion de la FIGURA
   for (int i = 0; i<total; i++){
@@ -147,7 +148,7 @@ void draw() {
   }
   
 //Puntos efera
-strokeWeight(2);
+strokeWeight(3);
 stroke(0,0,100);
   for (int i = 0; i<total_esfera; i++){
     for (int j = 0; j<total_esfera; j++) {
@@ -157,7 +158,7 @@ stroke(0,0,100);
   }
   
 //Curvas
-stroke(0,0,map(sin(frame), -1, 1, 0, 100));
+stroke(0,0,100);
 for (int i = 0; i < total + 1; i++) {
    for (int j = 0; j < total + 1; j++) {
      //puntos_linea[i][j] = new PVector(map(i, 0, total, 0, total_esfera + 1), map(j, 0, total, 0, total_esfera + 1));
@@ -172,7 +173,7 @@ for (int i = 0; i < total + 1; i++) {
    }
  }
   
-  frame += 0.01;
+  frame += variframe;
   if (frame > 9999*PI){
   frame = 0;
   }
