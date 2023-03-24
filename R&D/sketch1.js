@@ -65,17 +65,17 @@ function draw() {
   
 
   if (((frame/interval)%(1) == 0) && playing1) {
-    monoSynth.play('C4', 1, 0, 1/6);
+    monoSynth.play('C4', 0.7, 0, 1/6);
     //playSynth();
     circle(x, y, 15);
   }
   if (((frame/interval)%(2) == 0) && playing2) {
-    monoSynth.play('D#4', 1, 0, 1/6);
+    monoSynth.play('D#4', 0.8, 0, 1/6);
     //playSynth();
     circle(x, y, 15);
   }
   if (((frame/interval)%(3) == 0) && playing3) {
-    monoSynth.play('G4', 1, 0, 1/6);
+    monoSynth.play('G4', 0.9, 0, 1/6);
     //playSynth();
     circle(x, y, 15);
   }
