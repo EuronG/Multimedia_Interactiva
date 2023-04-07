@@ -1,151 +1,182 @@
-let osc1, osc2, osc3, osc4, playing1, playing2, playing3, playing4, freq, amp, frame, delay, tog1, tog2, tog3, tog4, monoSynth;
+let monoSynth, frame, playing1, playing2, playing3, playing4, text1, interval, button1, button2, button3, button4, forma0, forma1, forma2, forma3, forma4, div1, div2, sound1, sound2, sound3, sound4;
+
+function preload() {
+  soundFormats('mp3', 'wav');
+  sound1 = loadSound('sounds/12g.wav');
+  sound2 = loadSound('sounds/6p.wav');
+  sound3 = loadSound('sounds/4b.wav');
+  sound4 = loadSound('sounds/3d.wav');
+}
 
 function setup() {
-  let cnv = createCanvas(500, 500);
-  delay = 10;
+  let cnv = createCanvas(880, 450);
+  //cnv.mousePressed(playSynth);
+
+
   frame = 0;
-  tog1 = true;
-  tog2 = true;
-  tog3 = true;
-  tog4 = true;
-  button1 = createButton("On");
-  button2 = createButton("On");
-  button3 = createButton("On");
-  button4 = createButton("On");
-  button1.mousePressed(toggleOsc1);
-  button2.mousePressed(toggleOsc2);
-  button3.mousePressed(toggleOsc3);
-  button4.mousePressed(toggleOsc4);
-  cnv.mousePressed(playOscillator);
-  osc1 = new p5.Oscillator('sine');
-  osc2 = new p5.Oscillator('sine');
-  osc3 = new p5.Oscillator('sine');
-  osc4 = new p5.Oscillator('sine');
+  interval = 40;
   monoSynth = new p5.MonoSynth();
+  let p1 = createP("1");
+  let p2 = createP("2");
+  let p3 = createP("3");
+  let p4 = createP("4");
+  div2 = createDiv();
+  div1 = createDiv();
+  button1 = createButton("Off");
+  button2 = createButton("Off");
+  button3 = createButton("Off");
+  button4 = createButton("Off");
+  div2.child(p1);
+  div2.child(p2);
+  div2.child(p3);
+  div2.child(p4);
+  div1.child(button1);
+  div1.child(button2);
+  div1.child(button3);
+  div1.child(button4);
+
+  button1.mousePressed(toggle1);
+  button2.mousePressed(toggle2);
+  button3.mousePressed(toggle3);
+  button4.mousePressed(toggle4);
+  forma0 = formas(100, 200);
+  forma1 = formas(12, 200);
+  forma2 = formas(6, 200);
+  forma3 = formas(4, 200);
+  forma4 = formas(3, 200);
 }
 
 function draw() {
-  background(220);
-  freq = constrain(map(mouseX, 0, width, 100, 500), 100, 500);
-  //amp = constrain(map(mouseY, height, 0, 0, 1), 0, 1);
-  amp = 1;
+  background('#1b003a');
+  stroke('FFFFFF')
+  translate(width / 2, height / 2);
 
-  text('tap to play', 20, 20);
-  text('freq: ' + freq, 20, 40);
-  text('amp: ' + amp, 20, 60);
+  if (playing1) {
+    fill('#650099');
+    drawShape(forma1);}
+  if (playing2) {
+    fill('#7f00b2');
+    drawShape(forma2);}
+  if (playing3) {
+    fill('#ab3ed8');
+    drawShape(forma3);}
+  if (playing4) {
+    fill('#d86aff');
+    drawShape(forma4);}
+  
+  noFill();
+  drawShape(forma0);
+  let x = map(sin((frame/interval)*(PI/6)), -1, 1, -200, 200);
+  let y = map(cos((frame/interval)*(PI/6)), -1, 1, -200, 200);
+  fill('FFFFFF');
+  circle(x, y, 10);
+  
 
-
-  if (((frame/delay) % 1 == 0) && tog1) {
-    
-    //osc1.freq(map(freq, 100, 500, 100, 200));
-    //osc1.freq(freq, 0.1);
-    //osc1.amp(amp, 0.1);
-    playing1 = true;
-  } else {
-    if (playing1) {
-        osc1.amp(0, 0.5);
-        playing1 = false;
-}
-
+  if (((frame/interval)%(1) == 0) && playing1) {
+    sound1.play();
+    //monoSynth.play('C4', 0.7, 0, 1/6);
+    //playSynth();
+    circle(x, y, 15);
   }
-  if (((frame/delay) % 2 == 0) && tog2) {
-    //osc2.freq(map(freq, 100, 500, 200, 300));
-    //osc2.freq(freq, 0.1);
-    //osc2.amp(amp, 0.1);
-    playing2 = true;
-  } else {
-    if (playing2) {
-        osc2.amp(0, 0.5);
-        playing2 = false;
+  if (((frame/interval)%(2) == 0) && playing2) {
+    //sound2.play();
+    monoSynth.play('D#4', 0.7, 0, 1/6);
+    //playSynth();
+    circle(x, y, 15);
+  }
+  if (((frame/interval)%(3) == 0) && playing3) {
+    sound3.play();
+    //monoSynth.play('G4', 0.9, 0, 1/6);
+    //playSynth();
+    circle(x, y, 15);
+  }
+  if (((frame/interval)%(4) == 0) && playing4) {
+    sound4.play();
+    //monoSynth.play('Bb4', 1, 0, 1/6);
+    //playSynth();
+    circle(x, y, 15);
+  }
+  
+
+  frame++;
 }
 
-  }
-  if (((frame/delay) % 3 == 0) && tog3) {
-    //osc3.freq(map(freq, 100, 500, 300, 400));
-    //osc3.freq(freq, 0.1);
-    //osc3.amp(amp, 0.1);
-    playing3 = true;
-  } else {
-    if (playing3) {
-        osc3.amp(0, 0.5);
-        playing3 = false;
-}
-  }
-  if (((frame/delay) % 4 == 0) && tog4) {
-    monoSynth.play('G4', 0.1, 0, 0.0001);
-    //osc4.freq(map(freq, 100, 500, 400, 500));
-    //osc4.freq(freq, 0.1);
-    //osc4.amp(amp, 0.1);
-    //playing4 = true;
-  } else {
-    if (playing4) {
-        osc4.amp(0, 0.5);
-        playing4 = false;
-}
-
-  }
-  frame += 1;
-}
-
-function playOscillator() {
-  // starting an oscillator on a user gesture will enable audio
-  // in browsers that have a strict autoplay policy.
-  // See also: userStartAudio();
+function playSynth() {
   userStartAudio();
-  //osc1.start();
-  //osc1.start();
-  //osc2.start();
-  //osc3.start();
+  //monoSynth.play('G4', 1, 0, 1/6);
   playing1 = true;
   playing2 = true;
   playing3 = true;
   playing4 = true;
 }
 
-function mouseReleased() {
-  // ramp amplitude to 0 over 0.5 seconds
-  //osc1.amp(0, 0.5);
-  //osc2.amp(0, 0.6);
-  //osc3.amp(0, 0.7);
-  //osc4.amp(0, 0.8);
-}
-
-function toggleOsc1() {
-  if (tog1){
-    tog1 = false;
+function toggle1() {
+  userStartAudio();
+  if (playing1){
+    playing1 = false;
     button1.html("Off")
   } else {
-    tog1 = true;
+    playing1 = true;
     button1.html("On")
   }
 }
 
-function toggleOsc2() {
-  if (tog2){
-    tog2 = false;
+function toggle2() {
+  userStartAudio();
+  if (playing2){
+    playing2 = false;
     button2.html("Off")
   } else {
-    tog2 = true;
+    playing2 = true;
     button2.html("On")
   }
 }
 
-function toggleOsc3() {
-  if (tog3){
-    tog3 = false;
+function toggle3() {
+  userStartAudio();
+  if (playing3){
+    playing3 = false;
     button3.html("Off")
   } else {
-    tog3 = true;
+    playing3 = true;
     button3.html("On")
   }
 }
 
-function toggleOsc4() {
-  if (tog4){
-    tog4 = false;
+function toggle4() {
+  userStartAudio();
+  if (playing4){
+    playing4 = false;
     button4.html("Off")
   } else {
-    tog4 = true;
+    playing4 = true;
     button4.html("On")
   }
+}
+
+function formas(n, radio){
+  let forma = []
+  let angulo, x, y;
+  for (let index = 0; index < n; index++) {
+    angulo = 2 * Math.PI / n * index + HALF_PI;
+    x = radio * Math.cos(angulo);
+    y = radio * Math.sin(angulo);
+    forma.push([x,y]);
+  }
+  return forma;
+}
+
+function drawShape(forma){
+  beginShape();
+  for (let i = 0; i < forma.length; i++) {
+    vertex(forma[i][0], forma[i][1]);
+  }
+  endShape(CLOSE);
+}
+
+function rotor(){
+  let x = map(sin(frame),-1,1);
+  let y = Math.sqrt(200 - x ** 2);
+  fill(255,0,0);
+  circle(x, y, 50);
 }
