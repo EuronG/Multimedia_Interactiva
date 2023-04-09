@@ -54,7 +54,7 @@ void draw() {
   rotateX(HALF_PI);
   
   
-  drawSuperShapes(constrain(map(ampsuma, 0, cantidadx*cantidady, 0, 1), 0, 1));
+  drawSuperShapes(constrain(map(ampsuma, 0, cantidadx*cantidady/20, 0, 1), 0, 1));
   
   frameGrid = frameGrid + 0.001;
 }
