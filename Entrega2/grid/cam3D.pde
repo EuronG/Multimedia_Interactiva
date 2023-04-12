@@ -46,7 +46,7 @@ void drawCam3D() {
 
       //float distance=dist(r, g, b, 0, 100, 100);
       if ((hue(hsbColor)<10 || hue(hsbColor)>340) && saturation(hsbColor)>60 && brightness(hsbColor)>60) {
-         stroke(hsbColor);
+         stroke(frameGrid ,100,100);
          for (int i = 0; i < cantidadx; i++) {
             if (x > coords[i][0].x -50 && x< coords[i][0].x +50){
               for (int j = 0; j < cantidady; j++){
@@ -57,7 +57,7 @@ void drawCam3D() {
             }
           }
       }else{
-         stroke(100);
+         stroke(hsbColor);
       }
       vertex(x, y, brightness(pixelValue) *1.3 + 100);
     }

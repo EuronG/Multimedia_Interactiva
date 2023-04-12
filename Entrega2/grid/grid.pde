@@ -4,7 +4,7 @@ PeasyCam cam;
 SoundFile file;
 Amplitude amp;
 float ampsuma;
-float frameGrid = 0;
+float frameGrid = random(0,100);
 int cantidadx = 8;
 int cantidady = 5;
 PVector[][]coords = new PVector[cantidadx][cantidady];
@@ -39,7 +39,7 @@ void draw() {
 
   background(0);
   stroke(100);
-  strokeWeight(3);
+  strokeWeight(5);
 
   
   translate(-width/2, -height/2, 0);
@@ -62,10 +62,10 @@ void draw() {
   
   rotateX(HALF_PI);
   
-  drawSuperShapes(constrain(map(ampsuma, 0, cantidadx*cantidady/20, 0, 1), 0, 1));
+  drawSuperShapes(constrain(map(ampsuma, 0, cantidadx*cantidady/20, 0, 1), 0, 1), frameGrid);
   
   //translate(-width/2, -height/2, 0);
   
   
-  frameGrid = frameGrid + 0.001;
+  frameGrid = frameGrid + 0.05;
 }

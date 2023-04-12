@@ -23,7 +23,7 @@ void triggerSetup(){
 }
 
 float trigger(){
-  
+  strokeWeight(5);
   for (int i = 0; i < cantidadx; i++) {
     for (int j = 0; j < cantidady; j++){
       if (boolCoords[i][j]){
@@ -32,10 +32,10 @@ float trigger(){
             notes[i][j].play();
             circleSizes[i][j] = circlesize +60;
           }
-          else if (circlesize <= 100){
-            stroke(map(circlesize, 0, 100, 100, 0));
+          else if (circlesize <= 200){
+            stroke(frameGrid, 100, map(circlesize, 0, 200, 100, 0));
             circle(coords[i][j].x, coords[i][j].y, circlesize);
-            circleSizes[i][j] = circlesize +0.5;
+            circleSizes[i][j] = circlesize +3;
           }
           else{
             boolCoords[i][j] = false;
