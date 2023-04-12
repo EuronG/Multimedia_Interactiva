@@ -2,7 +2,6 @@ import processing.sound.*;
 import peasy.*;
 PeasyCam cam;
 SoundFile file;
-Amplitude amp;
 float ampsuma;
 float frameGrid = random(0,100);
 int cantidadx = 8;
@@ -19,8 +18,6 @@ void setup() {
   //size(500, 300, P3D);
   colorMode(HSB, 100);
   
-  //cam = new PeasyCam(this, 700);
-  file = new SoundFile(this, "CalleLlama.mp3");
   
   float widthi = width/(cantidadx + 1);
   float heighti = height/(cantidady + 1);
@@ -30,9 +27,6 @@ void setup() {
       coords[i][j] = new PVector(widthi*(i+1), heighti*(j+1));
     }
   }
-  amp = new Amplitude(this);
-  amp.input(note);
-  //file.play();
 }
 
 void draw() {
@@ -62,10 +56,10 @@ void draw() {
   
   rotateX(HALF_PI);
   
-  drawSuperShapes(constrain(map(ampsuma, 0, cantidadx*cantidady/20, 0, 1), 0, 1), frameGrid);
+  drawSuperShapes(constrain(map(ampsuma, 0, cantidadx*cantidady/10, 0, 1), 0, 1), frameGrid);
   
   //translate(-width/2, -height/2, 0);
   
   
-  frameGrid = frameGrid + 0.05;
+  frameGrid = (frameGrid + 0.3) % 100 ;
 }
