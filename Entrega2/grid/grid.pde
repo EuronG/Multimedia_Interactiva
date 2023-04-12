@@ -15,6 +15,7 @@ void setup() {
   triggerSetup();
   background(0);
   fullScreen(P3D);
+  //size(displayWidth,displayHeight,P3D);
   //size(500, 300, P3D);
   colorMode(HSB, 100);
   

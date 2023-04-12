@@ -23,15 +23,7 @@ void triggerSetup(){
 }
 
 float trigger(){
-  for (int i = 0; i < cantidadx; i++) {
-    if (mouseX > coords[i][0].x -50 && mouseX < coords[i][0].x +50){
-      for (int j = 0; j < cantidady; j++){
-        if (mouseY > coords[i][j].y -50 && mouseY < coords[i][j].y +50){
-          boolCoords[i][j] = true;
-        }
-      }
-    }
-  }
+  
   for (int i = 0; i < cantidadx; i++) {
     for (int j = 0; j < cantidady; j++){
       if (boolCoords[i][j]){

@@ -46,6 +46,15 @@ void drawCam3D() {
       //float distance=dist(r, g, b, 0, 100, 100);
       if ((hue(hsbColor)<20 || hue(hsbColor)>340) && brightness(hsbColor)>60 && saturation(hsbColor)>60) {
          stroke(hsbColor);
+         for (int i = 0; i < cantidadx; i++) {
+            if (x > coords[i][0].x -50 && x< coords[i][0].x +50){
+              for (int j = 0; j < cantidady; j++){
+                if (y > coords[i][j].y -50 && y < coords[i][j].y +50){
+                  boolCoords[i][j] = true;
+                }
+              }
+            }
+          }
       }else{
          stroke(200,100,100);
       }
