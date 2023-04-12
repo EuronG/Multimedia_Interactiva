@@ -24,9 +24,9 @@ void triggerSetup(){
 
 float trigger(){
   for (int i = 0; i < cantidadx; i++) {
-    if (mouseX > coords[i][0].x -30 && mouseX < coords[i][0].x +30){
+    if (mouseX > coords[i][0].x -50 && mouseX < coords[i][0].x +50){
       for (int j = 0; j < cantidady; j++){
-        if (mouseY > coords[i][j].y -30 && mouseY < coords[i][j].y +30){
+        if (mouseY > coords[i][j].y -50 && mouseY < coords[i][j].y +50){
           boolCoords[i][j] = true;
         }
       }
@@ -60,46 +60,46 @@ float trigger(){
 }
 
 void loads(){
-    notes[0][0] = new SoundFile(this, "sounds/12g - Copy (1).wav");
-    notes[0][1] = new SoundFile(this, "sounds/12g - Copy (2).wav");
+    notes[0][0] = new SoundFile(this, "sounds/g1.wav");
+    notes[0][1] = new SoundFile(this, "sounds/p1.wav");
     notes[0][2] = new SoundFile(this, "sounds/12g - Copy (3).wav");
-    notes[0][3] = new SoundFile(this, "sounds/12g - Copy (4).wav");
-    notes[0][4] = new SoundFile(this, "sounds/12g - Copy (5).wav");
-    notes[1][0] = new SoundFile(this, "sounds/12g - Copy (6).wav");
-    notes[1][1] = new SoundFile(this, "sounds/12g - Copy (7).wav");
+    notes[0][3] = new SoundFile(this, "sounds/plash.wav");
+    notes[0][4] = new SoundFile(this, "sounds/drum.wav");
+    notes[1][0] = new SoundFile(this, "sounds/g2.wav");
+    notes[1][1] = new SoundFile(this, "sounds/p2.wav");
     notes[1][2] = new SoundFile(this, "sounds/12g - Copy (8).wav");
-    notes[1][3] = new SoundFile(this, "sounds/12g - Copy (9).wav");
-    notes[1][4] = new SoundFile(this, "sounds/12g - Copy (10).wav");
-    notes[2][0] = new SoundFile(this, "sounds/12g - Copy (11).wav");
-    notes[2][1] = new SoundFile(this, "sounds/12g - Copy (12).wav");
+    notes[1][3] = new SoundFile(this, "sounds/plash.wav");
+    notes[1][4] = new SoundFile(this, "sounds/drum.wav");
+    notes[2][0] = new SoundFile(this, "sounds/g3.wav");
+    notes[2][1] = new SoundFile(this, "sounds/p3.wav");
     notes[2][2] = new SoundFile(this, "sounds/12g - Copy (13).wav");
-    notes[2][3] = new SoundFile(this, "sounds/12g - Copy (14).wav");
-    notes[2][4] = new SoundFile(this, "sounds/12g - Copy (15).wav");
-    notes[3][0] = new SoundFile(this, "sounds/12g - Copy (16).wav");
-    notes[3][1] = new SoundFile(this, "sounds/12g - Copy (17).wav");
+    notes[2][3] = new SoundFile(this, "sounds/plash.wav");
+    notes[2][4] = new SoundFile(this, "sounds/drum.wav");
+    notes[3][0] = new SoundFile(this, "sounds/g4.wav");
+    notes[3][1] = new SoundFile(this, "sounds/p4.wav");
     notes[3][2] = new SoundFile(this, "sounds/12g - Copy (18).wav");
-    notes[3][3] = new SoundFile(this, "sounds/12g - Copy (19).wav");
-    notes[3][4] = new SoundFile(this, "sounds/12g - Copy (20).wav");
-    notes[4][0] = new SoundFile(this, "sounds/12g - Copy (21).wav");
-    notes[4][1] = new SoundFile(this, "sounds/12g - Copy (22).wav");
+    notes[3][3] = new SoundFile(this, "sounds/plash.wav");
+    notes[3][4] = new SoundFile(this, "sounds/drum.wav");
+    notes[4][0] = new SoundFile(this, "sounds/g5.wav");
+    notes[4][1] = new SoundFile(this, "sounds/p5.wav");
     notes[4][2] = new SoundFile(this, "sounds/12g - Copy (23).wav");
-    notes[4][3] = new SoundFile(this, "sounds/12g - Copy (24).wav");
-    notes[4][4] = new SoundFile(this, "sounds/12g - Copy (25).wav");
-    notes[5][0] = new SoundFile(this, "sounds/12g - Copy (26).wav");
-    notes[5][1] = new SoundFile(this, "sounds/12g - Copy (27).wav");
+    notes[4][3] = new SoundFile(this, "sounds/plash.wav");
+    notes[4][4] = new SoundFile(this, "sounds/drum.wav");
+    notes[5][0] = new SoundFile(this, "sounds/g6.wav");
+    notes[5][1] = new SoundFile(this, "sounds/p6.wav");
     notes[5][2] = new SoundFile(this, "sounds/12g - Copy (28).wav");
-    notes[5][3] = new SoundFile(this, "sounds/12g - Copy (29).wav");
-    notes[5][4] = new SoundFile(this, "sounds/12g - Copy (30).wav");
-    notes[6][0] = new SoundFile(this, "sounds/12g - Copy (31).wav");
-    notes[6][1] = new SoundFile(this, "sounds/12g - Copy (32).wav");
+    notes[5][3] = new SoundFile(this, "sounds/plash.wav");
+    notes[5][4] = new SoundFile(this, "sounds/drum.wav");
+    notes[6][0] = new SoundFile(this, "sounds/g7.wav");
+    notes[6][1] = new SoundFile(this, "sounds/p7.wav");
     notes[6][2] = new SoundFile(this, "sounds/12g - Copy (33).wav");
-    notes[6][3] = new SoundFile(this, "sounds/12g - Copy (34).wav");
-    notes[6][4] = new SoundFile(this, "sounds/12g - Copy (35).wav");
-    notes[7][0] = new SoundFile(this, "sounds/12g - Copy (36).wav");
-    notes[7][1] = new SoundFile(this, "sounds/12g - Copy (37).wav");
+    notes[6][3] = new SoundFile(this, "sounds/plash.wav");
+    notes[6][4] = new SoundFile(this, "sounds/drum.wav");
+    notes[7][0] = new SoundFile(this, "sounds/g8.wav");
+    notes[7][1] = new SoundFile(this, "sounds/p8.wav");
     notes[7][2] = new SoundFile(this, "sounds/12g - Copy (38).wav");
-    notes[7][3] = new SoundFile(this, "sounds/12g - Copy (39).wav");
-    notes[7][4] = new SoundFile(this, "sounds/12g - Copy (40).wav");
+    notes[7][3] = new SoundFile(this, "sounds/plash.wav");
+    notes[7][4] = new SoundFile(this, "sounds/drum.wav");
     amps[0][0].input(notes[0][0]);
     amps[0][1].input(notes[0][1]);
     amps[0][2].input(notes[0][2]);

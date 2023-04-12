@@ -11,6 +11,7 @@ PVector[][]coords = new PVector[cantidadx][cantidady];
 
 void setup() {
   setupSuperShapes();
+  setupCam3D();
   triggerSetup();
   background(0);
   fullScreen(P3D);
@@ -38,6 +39,8 @@ void draw() {
   stroke(100);
   strokeWeight(3);
   
+  
+  translate(-width/2, -height/2, 0);
   for (int i = 0; i < cantidadx; i++){
     for (int j = 0; j < cantidady; j++){
       PVector c = coords[i][j];
@@ -48,13 +51,21 @@ void draw() {
   
   circle(mouseX, mouseY, 20);
   
-  ampsuma = trigger();
+  drawCam3D();
   
+  
+  ampsuma = trigger();
   translate(width / 2, height / 2);
+  
+
+  
+  
   rotateX(HALF_PI);
   
-  
   drawSuperShapes(constrain(map(ampsuma, 0, cantidadx*cantidady/20, 0, 1), 0, 1));
+  
+  //translate(-width/2, -height/2, 0);
+  
   
   frameGrid = frameGrid + 0.001;
 }
