@@ -35,10 +35,11 @@ void setup() {
 }
 
 void draw() {
+
   background(0);
   stroke(100);
   strokeWeight(3);
-  
+
   
   translate(-width/2, -height/2, 0);
   for (int i = 0; i < cantidadx; i++){
@@ -51,14 +52,12 @@ void draw() {
   
   circle(mouseX, mouseY, 20);
   
+  //colorMode(RGB,100);
   drawCam3D();
-  
-  
+  //colorMode(HSB,100);
+  stroke(color(0,0,100));
   ampsuma = trigger();
   translate(width / 2, height / 2);
-  
-
-  
   
   rotateX(HALF_PI);
   
