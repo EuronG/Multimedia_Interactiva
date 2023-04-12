@@ -10,17 +10,16 @@ void setupCam3D(){
   
   cam2 = new PeasyCam(this, 1000);
   cam2.setMinimumDistance(5);
-  cam2.setMaximumDistance(1500);
-  
- 
+  cam2.setMaximumDistance(1300);
   //frameRate(30);
   String[] devices = Capture.list();
-  video = new Capture(this,width,height, devices[0]);
+  video = new Capture(this, devices[0]);
   video.start();
 }
 
 void drawCam3D() {
-
+  
+  
   noFill();
   lights();
   strokeWeight(2);
@@ -35,7 +34,11 @@ void drawCam3D() {
   }
   tint(255, 0);
   image(video,0,0);
+<<<<<<< HEAD
   for (int y = 0; y < video.height; y += 10) {
+=======
+  for (int y = 0; y < video.height; y += 4) {
+>>>>>>> parent of 3af6b8b (Update cam3D.pde)
     beginShape();
     for (int x = 0; x < video.width; x+=2) {
       
@@ -59,7 +62,7 @@ void drawCam3D() {
       }else{
          stroke(hsbColor);
       }
-      vertex(x, y, brightness(pixelValue) *1.3 + 100);
+      vertex(x, y, brightness(pixelValue) / 1.2 + 100);
     }
     endShape();
   }
