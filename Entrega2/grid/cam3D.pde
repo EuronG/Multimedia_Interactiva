@@ -10,10 +10,10 @@ void setupCam3D(){
   
   cam2 = new PeasyCam(this, 1000);
   cam2.setMinimumDistance(5);
-  cam2.setMaximumDistance(1300);
+  cam2.setMaximumDistance(1500);
   //frameRate(30);
   String[] devices = Capture.list();
-  video = new Capture(this, devices[0]);
+  video = new Capture(this, width, height, devices[0]);
   video.start();
 }
 
@@ -58,7 +58,7 @@ void drawCam3D() {
       }else{
          stroke(hsbColor);
       }
-      vertex(x, y, brightness(pixelValue) / 1.2 + 100);
+      vertex(x, y, brightness(pixelValue) * 1.3 + 100);
     }
     endShape();
   }
