@@ -15,11 +15,8 @@ void setup() {
   triggerSetup();
   background(0);
   fullScreen(P3D);
-  //size(displayWidth,displayHeight,P3D);
-  //size(500, 300, P3D);
   colorMode(HSB, 100);
-  
-  //cam = new PeasyCam(this, 700);
+
   file = new SoundFile(this, "CalleLlama.mp3");
   
   float widthi = width/(cantidadx + 1);
@@ -32,7 +29,6 @@ void setup() {
   }
   amp = new Amplitude(this);
   amp.input(note);
-  //file.play();
 }
 
 void draw() {
@@ -41,17 +37,26 @@ void draw() {
   stroke(100);
   strokeWeight(3);
 
-  stroke(0,100,100);
+  
   translate(-width/2, -height/2, 0);
+  stroke(100,100,100);
+  
   for (int i = 0; i < cantidadx; i++){
     for (int j = 0; j < cantidady; j++){
+      beginShape(TRIANGLE_FAN);
       PVector c = coords[i][j];
-      line(c.x -30, c.y, c.x +30, c.y);
-      line(c.x, c.y -30, c.x, c.y +30);
+      vertex(c.x -30, c.y);
+      vertex(c.x +30, c.y);
+      vertex(c.x, c.y -30);
+      vertex(c.x, c.y +30);
+      vertex(c.x +30, c.y);
+
+      endShape();
     }
   }
+ 
   
-  circle(mouseX, mouseY, 20);
+  //circle(mouseX, mouseY, 20);
   
   //colorMode(RGB,100);
   drawCam3D();

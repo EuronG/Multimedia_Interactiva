@@ -32,8 +32,8 @@ float trigger(){
             notes[i][j].play();
             circleSizes[i][j] = circlesize +60;
           }
-          else if (circlesize <= 100){
-            stroke(map(circlesize, 0, 100, 100, 0));
+          else if (circlesize <= 200){
+            stroke(map(circlesize, 0, 200, 100, 0));
             circle(coords[i][j].x, coords[i][j].y, circlesize);
             circleSizes[i][j] = circlesize +0.5;
           }
