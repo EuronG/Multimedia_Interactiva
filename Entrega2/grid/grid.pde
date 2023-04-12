@@ -41,7 +41,7 @@ void draw() {
   stroke(100);
   strokeWeight(5);
 
-  stroke(0,100,100);
+  stroke(100);
   translate(-width/2, -height/2, 0);
   for (int i = 0; i < cantidadx; i++){
     for (int j = 0; j < cantidady; j++){
@@ -51,12 +51,12 @@ void draw() {
     }
   }
   
-  circle(mouseX, mouseY, 20);
+  //circle(mouseX, mouseY, 20);
   
   //colorMode(RGB,100);
   drawCam3D();
   //colorMode(HSB,100);
-  stroke(color(0,0,100));
+  //stroke(color(0,0,100));
   ampsuma = trigger();
   translate(width / 2, height / 2);
   
