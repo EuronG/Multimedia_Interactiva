@@ -23,7 +23,7 @@ void drawCam3D() {
   noFill();
   lights();
   strokeWeight(2);
-  background(0);
+  //background(0);
 
   pushMatrix();
   //translate(width/2, height/2, 0);
@@ -40,17 +40,16 @@ void drawCam3D() {
       
       int index = (x + y * video.width);
       color pixelValue = video.pixels[index];
-      int r = (int) red(pixelValue);
-      int g = (int) green(pixelValue);
-      int b = (int) blue(pixelValue);
-      int bright = (r + g + b) / 3;
-      float distance=dist(r, g, b, 0, 100, 100);
-      if (r<20 || r>200){
-         stroke(pixelValue);
+      
+      color hsbColor = color(hue(pixelValue), saturation(pixelValue), brightness(pixelValue)); // Convertir a formato HSB
+
+      //float distance=dist(r, g, b, 0, 100, 100);
+      if ((hue(hsbColor)<20 || hue(hsbColor)>340) && brightness(hsbColor)>60 && saturation(hsbColor)>60) {
+         stroke(hsbColor);
       }else{
-         stroke(180,100,100);
+         stroke(200,100,100);
       }
-      vertex(x, y, bright / 1.2 + 100);
+      vertex(x, y, brightness(pixelValue) / 1.2 + 100);
     }
     endShape();
   }
