@@ -1,7 +1,6 @@
-float frame = random(0, 10*PI);
 float variframe = random(0.01, 0.05);
 int total = 35;
-int total_esfera = 25;
+int total_esfera = 15;
 float variacion = 20; //variacion puntos de esfera
 float variacion1 = random(0, 40); //variacion de la curva, 0 es recta y 40 es muy curva
 PVector[][] variacion2;  //Array para variar la curva
@@ -71,7 +70,7 @@ void setupSuperShapes() {
  
 }
 
-void drawSuperShapes(float amp) {
+void drawSuperShapes(float amp, float frame) {
  //background(0);
  //translate(width / 2, height / 2);
  
@@ -81,7 +80,7 @@ void drawSuperShapes(float amp) {
  lights();
  
  //stroke(200,0,100);
- stroke(map(cos(frame/10),-1,1,0,100), 100, 100);
+ stroke(frame, 100, 100);
  strokeWeight(map(amp, 0, 1, 5, 0));
  
  float[] shape0 = {map(amp, 0, 1, shape1[0], shape2[0]),

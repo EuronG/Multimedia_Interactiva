@@ -34,13 +34,9 @@ void drawCam3D() {
   }
   tint(255, 0);
   image(video,0,0);
-<<<<<<< HEAD
-  for (int y = 0; y < video.height; y += 10) {
-=======
-  for (int y = 0; y < video.height; y += 4) {
->>>>>>> parent of 3af6b8b (Update cam3D.pde)
+  for (int y = 0; y < video.height; y += 15) {
     beginShape();
-    for (int x = 0; x < video.width; x+=2) {
+    for (int x = 0; x < video.width; x++) {
       
       int index = (x + y * video.width);
       color pixelValue = video.pixels[index];
@@ -48,8 +44,8 @@ void drawCam3D() {
       color hsbColor = color(hue(pixelValue), saturation(pixelValue), brightness(pixelValue)); // Convertir a formato HSB
 
       //float distance=dist(r, g, b, 0, 100, 100);
-      if ((hue(hsbColor)<30 || hue(hsbColor)>70) && saturation(hsbColor)>50) {
-         stroke(100);
+      if ((hue(hsbColor)<10 || hue(hsbColor)>340) && saturation(hsbColor)>60 && brightness(hsbColor)>60) {
+         stroke(frameGrid ,100,100);
          for (int i = 0; i < cantidadx; i++) {
             if (x > coords[i][0].x -50 && x< coords[i][0].x +50){
               for (int j = 0; j < cantidady; j++){
