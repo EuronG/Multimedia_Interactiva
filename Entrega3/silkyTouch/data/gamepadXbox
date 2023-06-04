@@ -1,0 +1,10 @@
+Xbox controller
+leftX	analogo izquierdo x	3	SLIDER	X Axis	0	1.0	0.0
+leftY	analogo izquierdo y	3	SLIDER	Y Axis	0	1.0	0.0
+rightX	analogo derecho x	3	SLIDER	X Rotation	0	1.0	0.0
+rightY	analogo izquierdo y	3	SLIDER	Y Rotation	0	1.0	0.0
+axisZ	gatillos	3	SLIDER	Z Axis	0	1.0	0.0
+btA	boton A	1	BUTTON	Button 0	0	0.0	0.0
+btB	boton B	1	BUTTON	Button 1	0	0.0	0.0
+btX	boton X	1	BUTTON	Button 2	0	0.0	0.0
+btY	boton Y	1	BUTTON	Button 3	0	0.0	0.0
