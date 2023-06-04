@@ -17,8 +17,8 @@ void touchSetup() {
 
   flowfield = new PVector[cols * rows];
 
-  for (int i = 0; i < 300; i++) {
-    particles.add(new Particle());
+  for (int i = 0; i < 50; i++) {
+    particles.add(new Particle(random(100), random(100), random(100)));
   }
   background(51);
 }

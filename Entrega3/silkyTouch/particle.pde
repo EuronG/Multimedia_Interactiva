@@ -5,7 +5,7 @@ class Particle {
   float maxspeed;
   PVector prevPos;
 
-  Particle() {
+  Particle(float x, float y, float z) {
     pos = new PVector(random(width), random(height));
     vel = new PVector(0, 0);
     acc = new PVector(0, 0);
@@ -33,7 +33,7 @@ class Particle {
   }
 
   void show() {
-    stroke(255, 10);
+    stroke(0, 100, 100);
     strokeWeight(5);
     line(pos.x, pos.y, prevPos.x, prevPos.y);
     updatePrev();
