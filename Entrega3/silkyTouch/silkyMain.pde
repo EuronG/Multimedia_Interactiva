@@ -9,10 +9,8 @@ ControlIO control;
 ControlDevice gpad;
 float posx, posy, posz, viewx, viewy;
 float inct;
-float[] actualView;
 
-float largo_flecha = 300;
-float distanciaCam = 700;
+float largo_flecha = 100;
 
 
 void mainSetup(){
@@ -20,8 +18,6 @@ void mainSetup(){
   colorMode(HSB, 100);
   background(10);
   inct = 0;
-  actualView = cam.getPosition();
-  print(actualView[0],actualView[1],actualView[2]);
 }
 
 public void getUserInput() {
@@ -49,30 +45,33 @@ public void getUserInput() {
 }
 
 void mainDraw(){
+  translate(width/2, height/2);
   background(0);
   strokeWeight(2);
-  actualView = cam.getPosition();
   
   //EJES
-  stroke(0,100,100);
-  line(-100,0,0,100,0,0);
-  stroke(30,100,100);
-  line(0,-100,0,0,100,0);
-  stroke(70,100,100);
-  line(0,0,-100,0,0,100);
-  stroke(100,0,100);
+  //stroke(0,100,100);
+  //line(-100,0,100,0);
+  //stroke(30,100,100);
+  //line(0,-100,0,100);
+  stroke(0,0,100);
   getUserInput();
 
   strokeWeight(5);
-  line(0, 0, 0, posx*largo_flecha*actualView[2]/distanciaCam, posy*largo_flecha, -posx*actualView[0]*largo_flecha/distanciaCam);
+  line(0, 0, posx*largo_flecha, posy*largo_flecha);
   strokeWeight(10);
-  point(posx*largo_flecha*actualView[2]/distanciaCam, posy*largo_flecha, -posx*actualView[0]*largo_flecha/distanciaCam);
+  float aangle = atan2(posy, posx);
+  float arrowX1 = posx*100 - 10 * cos(aangle - PI / 6);
+  float arrowY1 = posy*100 - 10 * sin(aangle - PI / 6);
+  float arrowX2 = posx*100 - 10 * cos(aangle + PI / 6);
+  float arrowY2 = posy*100 - 10 * sin(aangle + PI / 6);
+  triangle(posx*largo_flecha, posy*largo_flecha, arrowX1, arrowY1, arrowX2, arrowY2);
+  point(0,0);
+  noFill();
+  strokeWeight(1);
+  circle(0,0, 100*2);
   
-  print("\n");
-  print(posx*100+actualView[2]/distanciaCam);
-  
-  cam.rotateY(viewx);
   
   inct += 0.01;
-  print(actualView[0],actualView[1],actualView[2]);
+
 }
