@@ -1,5 +1,5 @@
-float inc = 0.1;
-float scl = 10;
+float inc = 0.5;
+float scl = 5;
 int cols, rows;
 
 float zoff = 0;
@@ -17,10 +17,8 @@ void touchSetup() {
 
   flowfield = new PVector[cols * rows];
 
-  for (int i = 0; i < 50; i++) {
-    particles.add(new Particle(random(100), random(100), random(100)));
-  }
-  background(51);
+  
+  background(0);
 }
 
 void touchDraw() {
@@ -31,10 +29,10 @@ void touchDraw() {
       int index = x + y * cols;
       float angle = noise(xoff, yoff, zoff) * TWO_PI * 4;
       PVector v = PVector.fromAngle(angle);
-      v.setMag(1);
+      v.setMag(0.2);
       flowfield[index] = v;
       xoff += inc;
-      stroke(0, 50);
+      stroke(0, 50, 100);
       // pushMatrix();
       // translate(x * scl, y * scl);
       // rotate(v.heading());
@@ -44,14 +42,14 @@ void touchDraw() {
     }
     yoff += inc;
 
-    zoff += 0.0003;
+    zoff += 0.3;
   }
 
   for (int i = 0; i < particles.size(); i++) {
     Particle particle = particles.get(i);
     particle.follow(flowfield, scl, cols);
     particle.update();
-    particle.edges();
+    //particle.edges();
     particle.show();
   }
 

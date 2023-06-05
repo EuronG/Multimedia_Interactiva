@@ -2,14 +2,20 @@ class Particle {
   PVector pos;
   PVector vel;
   PVector acc;
-  float maxspeed;
+  float maxspeed, weight, colore;
   PVector prevPos;
+  boolean active;
 
-  Particle(float x, float y, float z) {
-    pos = new PVector(random(width), random(height));
+  Particle(float x, float y, float colorsito) {
+    //x = x + width/2 + random(10);
+    //y = y + height/2 + random(10);
+    pos = new PVector(x + width/2 + random(15), y + height/2 + random(15));
     vel = new PVector(0, 0);
-    acc = new PVector(0, 0);
+    acc = new PVector(x, y);
+    weight = 100;
+    colore = colorsito;
     maxspeed = 4;
+    active = true;
     prevPos = pos.copy();
   }
 
@@ -18,12 +24,18 @@ class Particle {
     vel.limit(maxspeed);
     pos.add(vel);
     acc.mult(0);
+    if (weight >= 0.5){
+      weight -= 0.3;
+    } else {
+      weight = 0;
+      active = false;
+    }
   }
 
   void follow(PVector[] vectors, float scl, int cols) {
     int x = floor(pos.x / scl);
     int y = floor(pos.y / scl);
-    int index = constrain(x + y * cols, 0, 2399);
+    int index = constrain(x + y * cols, 0, 72000-1);
     PVector force = vectors[index];
     applyForce(force);
   }
@@ -33,10 +45,12 @@ class Particle {
   }
 
   void show() {
-    stroke(0, 100, 100);
-    strokeWeight(5);
-    line(pos.x, pos.y, prevPos.x, prevPos.y);
-    updatePrev();
+    if (active){
+      stroke(colore, 100, weight);
+      strokeWeight(0.05);
+      line(pos.x, pos.y, prevPos.x, prevPos.y);
+      updatePrev();
+    }
   }
 
   void updatePrev() {
