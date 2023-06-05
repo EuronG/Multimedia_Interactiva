@@ -8,12 +8,12 @@ void setup(){
   size(1000, 800, OPENGL);
   
   mainSetup();
-  touchSetup();
+  //touchSetup();
 }
 
 void draw(){
   mainDraw();
-  translate(-width/2,-height/2);
-  touchDraw();
-  translate(width/2,height/2);
+  //translate(-width/2,-height/2);
+  //touchDraw();
+  //translate(width/2,height/2);
 }
