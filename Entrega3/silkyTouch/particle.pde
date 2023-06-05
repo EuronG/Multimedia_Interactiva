@@ -3,7 +3,7 @@ class Particle {
   PVector pos;
   PVector vel;
   PVector acc;
-  float maxspeed, weight, colore;
+  float maxspeed, weight, colore, tamano;
   PVector prevPos;
   boolean active;
   
@@ -15,6 +15,7 @@ class Particle {
     acc = new PVector(x, y);
     weight = 100;
     colore = colorsito;
+    tamano = 0.05;
     maxspeed = 4;
     active = true;
     prevPos = pos.copy();
@@ -27,10 +28,12 @@ class Particle {
     acc.mult(0);
     
     if (type==1) {
-      oscillate(4,2.1);    
+      oscillate(4,2.1);
+      tamano = 0.25;
     }
     if (type==2) {
-      oscillate(6,30);    
+      oscillate(6,30);
+      tamano = 0.5;
     }
     
     if (weight >= 0.5){
@@ -56,7 +59,7 @@ class Particle {
   void show() {
     if (active){
       stroke(colore, 100, weight);
-      strokeWeight(0.05);
+      strokeWeight(tamano);
       line(pos.x, pos.y, prevPos.x, prevPos.y);
       updatePrev();
     }

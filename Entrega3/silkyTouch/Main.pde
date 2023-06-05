@@ -29,7 +29,7 @@ void draw(){
   if (keyPressed && key == '2') {
     type=2;
   }
-  if (keyPressed && key == '2') {
+  if (keyPressed && key == '3') {
     type=3;
   }
 }

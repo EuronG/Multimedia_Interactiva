@@ -9,6 +9,7 @@ ControlIO control;
 ControlDevice gpad;
 float posx, posy, posz, viewx, viewy;
 float tiempo, xcircle, ycircle;
+float gatillos;
 boolean btA;
 
 float largo_flecha = 60;
@@ -28,7 +29,8 @@ public void getUserInput() {
   posx = gpad.getSlider("leftX").getValue();
   //posy = map(gpad.getSlider("leftY").getValue(), -1, 1, -100, 100);
   posy = gpad.getSlider("leftY").getValue();
-  //posz = map(gpad.getSlider("axisZ").getValue(), -1, 1, 0, 1000);
+  posz = gpad.getSlider("axisZ").getValue();
+  //print(abs(posz));
   viewx = map(gpad.getSlider("rightX").getValue(), -1, 1, -0.1, 0.1);
   viewy = map(gpad.getSlider("rightY").getValue(), -1, 1, -0.1, 0.1);
   btA = gpad.getButton("btA").pressed();
@@ -40,6 +42,9 @@ public void getUserInput() {
   }
   if (abs(posy) < 0.05) {
     posy = 0;
+  }
+  if (posz > 0.05) {
+    gatillos = (gatillos + posz)%100;
   }
   if (abs(viewx) < 0.01) {
     viewx = 0;
@@ -65,7 +70,7 @@ void mainDraw(){
   fill(0,0,0);
   noStroke();
   circle(xcircle,ycircle, 100*2);
-  stroke(0,0,100);
+  stroke(gatillos,80,100);
   
   
   strokeWeight(5);
