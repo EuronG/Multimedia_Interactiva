@@ -1,3 +1,4 @@
+int type;
 class Particle {
   PVector pos;
   PVector vel;
@@ -5,7 +6,7 @@ class Particle {
   float maxspeed, weight, colore;
   PVector prevPos;
   boolean active;
-
+  
   Particle(float x, float y, float colorsito) {
     //x = x + width/2 + random(10);
     //y = y + height/2 + random(10);
@@ -24,6 +25,14 @@ class Particle {
     vel.limit(maxspeed);
     pos.add(vel);
     acc.mult(0);
+    
+    if (type==1) {
+      oscillate(4,2.1);    
+    }
+    if (type==2) {
+      oscillate(6,30);    
+    }
+    
     if (weight >= 0.5){
       weight -= 0.3;
     } else {
@@ -76,4 +85,11 @@ class Particle {
       updatePrev();
     }
   }
+  void oscillate(float amplitude, float frequency) {
+    float angle = sin(frameCount * frequency) * amplitude;
+    PVector offset = PVector.fromAngle(angle);
+    offset.mult(amplitude);
+    pos.add(offset);
+  }
+
 }

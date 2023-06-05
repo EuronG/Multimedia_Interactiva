@@ -19,4 +19,17 @@ void draw(){
   translate(-width/2,-height/2);
   touchDraw();
   translate(width/2,height/2);
+  
+  if (keyPressed && key == 's') {
+    guardarPantalla();
+  }
+  if (keyPressed && key == '1') {
+    type=1;
+  }
+  if (keyPressed && key == '2') {
+    type=2;
+  }
+  if (keyPressed && key == '2') {
+    type=3;
+  }
 }
