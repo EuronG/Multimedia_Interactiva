@@ -10,12 +10,12 @@ class Particle {
   Particle(float x, float y, float colorsito) {
     //x = x + width/2 + random(10);
     //y = y + height/2 + random(10);
-    pos = new PVector(x + width/2 + random(15), y + height/2 + random(15));
+    pos = new PVector(x + width/2 + random(5), y + height/2 + random(5));
     vel = new PVector(0, 0);
     acc = new PVector(x, y);
     weight = 100;
     colore = colorsito;
-    tamano = 0.05;
+    tamano = 0.1;
     maxspeed = 4;
     active = true;
     prevPos = pos.copy();

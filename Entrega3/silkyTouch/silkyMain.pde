@@ -21,6 +21,7 @@ void mainSetup(){
   background(10);
   xcircle = 0;
   ycircle = 0;
+  
 }
 
 public void getUserInput() {
