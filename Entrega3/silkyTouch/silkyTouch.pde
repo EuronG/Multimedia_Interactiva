@@ -20,7 +20,7 @@ void touchSetup() {
 
   
   background(0);
-  particulasIniciales(100, 0, 0);
+  particulasIniciales(355, 0, 0);
 }
 
 void touchDraw() {
@@ -61,7 +61,7 @@ void touchDraw() {
     particle.follow(flowfield, scl, cols);
     particle.update();
     particle.edges();
-    particle.show();
+    particle.show(); //<>//
   }
 
   // textFont(fr);
