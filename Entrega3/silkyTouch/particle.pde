@@ -15,8 +15,8 @@ class Particle {
     acc = new PVector(x, y);
     weight = 100;
     colore = colorsito;
-    tamano = 0.1;
-    maxspeed = 4;
+    tamano = 0.15;
+    maxspeed = sqrt(sq(posx)+sq(posy))*7;
     active = true;
     prevPos = pos.copy();
   }
@@ -37,7 +37,7 @@ class Particle {
     }
     
     if (weight >= 0.5){
-      weight -= 0.3;
+      weight -= random(1);
     } else {
       weight = 0;
       active = false;
@@ -54,11 +54,13 @@ class Particle {
 
   void applyForce(PVector force) {
     acc.add(force);
+    PVector analogo_derecho = new PVector(viewx, viewy);
+    acc.add(analogo_derecho);
   }
 
   void show() {
     if (active){
-      stroke(colore, 100, weight);
+      stroke(colore, 100, 100);
       strokeWeight(tamano);
       line(pos.x, pos.y, prevPos.x, prevPos.y);
       updatePrev();
