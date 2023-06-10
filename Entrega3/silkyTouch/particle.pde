@@ -3,19 +3,20 @@ class Particle {
   PVector pos;
   PVector vel;
   PVector acc;
-  float maxspeed, weight, colore;
+  float maxspeed, weight, colore, tamano;
   PVector prevPos;
   boolean active;
   
   Particle(float x, float y, float colorsito) {
     //x = x + width/2 + random(10);
     //y = y + height/2 + random(10);
-    pos = new PVector(x + width/2 + random(15), y + height/2 + random(15));
+    pos = new PVector(x + width/2 + random(5), y + height/2 + random(5));
     vel = new PVector(0, 0);
     acc = new PVector(x, y);
     weight = 100;
     colore = colorsito;
-    maxspeed = 4;
+    tamano = 0.15;
+    maxspeed = sqrt(sq(posx)+sq(posy))*7;
     active = true;
     prevPos = pos.copy();
   }
@@ -27,14 +28,16 @@ class Particle {
     acc.mult(0);
     
     if (type==1) {
-      oscillate(4,2.1);    
+      oscillate(4,2.1);
+      tamano = 0.25;
     }
     if (type==2) {
-      oscillate(6,30);    
+      oscillate(6,30);
+      tamano = 0.5;
     }
     
     if (weight >= 0.5){
-      weight -= 0.3;
+      weight -= random(1);
     } else {
       weight = 0;
       active = false;
@@ -51,12 +54,14 @@ class Particle {
 
   void applyForce(PVector force) {
     acc.add(force);
+    PVector analogo_derecho = new PVector(viewx, viewy);
+    acc.add(analogo_derecho);
   }
 
   void show() {
     if (active){
-      stroke(colore, 100, weight);
-      strokeWeight(0.05);
+      stroke(colore, 100, 100);
+      strokeWeight(tamano);
       line(pos.x, pos.y, prevPos.x, prevPos.y);
       updatePrev();
     }

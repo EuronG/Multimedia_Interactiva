@@ -1,12 +1,12 @@
 float inc = 0.5;
 float scl = 5;
 int cols, rows;
-
 float zoff = 0;
 
 PFont fr;
 
 ArrayList<Particle> particles;
+ArrayList<ParticleInner> inicial_particles;
 PVector[] flowfield;
 
 void touchSetup() {
@@ -14,11 +14,13 @@ void touchSetup() {
   rows = floor(height / scl);
   fr = createFont("Arial", 14, true);
   particles = new ArrayList<Particle>();
+  inicial_particles = new ArrayList<ParticleInner>();
 
   flowfield = new PVector[cols * rows];
 
   
   background(0);
+  particulasIniciales(355, 0, 0);
 }
 
 void touchDraw() {
@@ -51,6 +53,15 @@ void touchDraw() {
     particle.update();
     //particle.edges();
     particle.show();
+  }
+  
+  //strokeWeight(10);
+  for (int i = 0; i < inicial_particles.size(); i++) {
+    ParticleInner particle = inicial_particles.get(i);
+    particle.follow(flowfield, scl, cols);
+    particle.update();
+    particle.edges();
+    particle.show(); //<>//
   }
 
   // textFont(fr);

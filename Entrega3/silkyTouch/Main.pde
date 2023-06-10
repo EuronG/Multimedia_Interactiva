@@ -8,7 +8,8 @@ void setup(){
     exit();
   }
   
-  size(1800, 1000);
+  //size(1800, 1000);
+  fullScreen();
   
   mainSetup();
   touchSetup();
