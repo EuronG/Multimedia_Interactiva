@@ -70,7 +70,7 @@ void mainDraw(){
   
   fill(0,0,0);
   noStroke();
-  circle(xcircle,ycircle, 100*2);
+  circle(xcircle,ycircle, 200+aud);
   stroke(gatillos,80,100);
   
   

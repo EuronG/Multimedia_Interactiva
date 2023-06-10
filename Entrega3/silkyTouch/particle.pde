@@ -34,6 +34,9 @@ class Particle {
     if (type==2) {
       oscillate(6,30);
       tamano = 0.5;
+    }if (type==999) {
+      oscillate(aud,5);
+      tamano = 0.9;
     }
     
     if (weight >= 0.5){

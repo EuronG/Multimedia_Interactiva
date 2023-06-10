@@ -10,7 +10,8 @@ void setup(){
   
   //size(1800, 1000);
   fullScreen();
-  
+  audioSetup();
+
   mainSetup();
   touchSetup();
 }
@@ -33,4 +34,5 @@ void draw(){
   if (keyPressed && key == '3') {
     type=3;
   }
+  audioDraw();
 }
