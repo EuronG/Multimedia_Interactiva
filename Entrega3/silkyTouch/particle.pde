@@ -7,7 +7,7 @@ class Particle {
   PVector prevPos;
   boolean active;
   
-  Particle(float x, float y, float colorsito) {
+  Particle(float x, float y, float colorsito, float maxSpeed) {
     //x = x + width/2 + random(10);
     //y = y + height/2 + random(10);
     pos = new PVector(x + width/2 + random(5), y + height/2 + random(5));
@@ -16,7 +16,7 @@ class Particle {
     weight = 100;
     colore = colorsito;
     tamano = 0.15;
-    maxspeed = sqrt(sq(posx)+sq(posy))*7;
+    maxspeed = maxSpeed;
     active = true;
     prevPos = pos.copy();
   }

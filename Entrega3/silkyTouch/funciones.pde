@@ -1,6 +1,6 @@
-void lanzarParticulas(int cantidad, float x, float y){
+void lanzarParticulas(int cantidad, float x, float y, float maxSpeed){
   for (int i = 0; i < cantidad; i++) {
-    particles.add(new Particle(x, y, gatillos));
+    particles.add(new Particle(x, y, gatillos, maxSpeed));
   }
 }
 

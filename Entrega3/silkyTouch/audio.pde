@@ -26,7 +26,7 @@ void audioDraw() {
        note.play();
        type=999;
        for (int i = -1; i <= 1; i++){
-          lanzarParticulas(30, aud , aud);
+          lanzarParticulas(30, aud , aud, vol*6);
       }
   }else{
     type=3;
@@ -35,7 +35,7 @@ void audioDraw() {
   
   if (vol>0.7) {
     for (int i = -1; i <= 1; i++){
-        lanzarParticulas(100, i , i);
+        lanzarParticulas(100, i , i, vol*6);
     }
   }
 }

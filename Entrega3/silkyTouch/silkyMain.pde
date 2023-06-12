@@ -86,7 +86,7 @@ void mainDraw(){
   point(0,0);
   
   if (btA) {
-    lanzarParticulas(10, posx * largo_flecha, posy * largo_flecha);
+    lanzarParticulas(10, posx * largo_flecha, posy * largo_flecha, sqrt(sq(posx)+sq(posy))*6);
   }
   tiempo += 0.1;
 }
