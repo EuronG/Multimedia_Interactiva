@@ -57,14 +57,12 @@ public void getUserInput() {
 
 void mainDraw(){
   translate(width/2, height/2);
-  //background(0);
+  
+  if (keyPressed && key == 'c') {
+    background(0);
+  }
   strokeWeight(2);
   
-  //EJES
-  //stroke(0,100,100);
-  //line(-100,0,100,0);
-  //stroke(30,100,100);
-  //line(0,-100,0,100);
   
   getUserInput();
   
