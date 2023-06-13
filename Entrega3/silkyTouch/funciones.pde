@@ -19,5 +19,7 @@ void guardarPantalla(){
 void limpiar_particulas(){
   for (int i = particles.size() - 1; i >= 0; i--){
     if (!particles.get(i).active) {
-    particles.remove(i);
+      particles.remove(i);
+    }
   }
+}
