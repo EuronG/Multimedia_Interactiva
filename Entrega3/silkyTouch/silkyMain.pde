@@ -88,5 +88,10 @@ void mainDraw(){
   if (btA) {
     lanzarParticulas(10, posx * largo_flecha, posy * largo_flecha, sqrt(sq(posx)+sq(posy))*6);
   }
-  tiempo += 0.1;
+  if (tiempo > 20){
+    limpiar_particulas();
+    tiempo = 0;
+  } else {
+    tiempo += 0.1;
+  }
 }

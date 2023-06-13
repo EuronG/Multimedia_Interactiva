@@ -15,3 +15,9 @@ void guardarPantalla(){
     save("captura_" + timestamp + ".png");
     println("Captura de pantalla guardada.");
 }
+
+void limpiar_particulas(){
+  for (int i = particles.size() - 1; i >= 0; i--){
+    if (!particles.get(i).active) {
+    particles.remove(i);
+  }
