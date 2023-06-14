@@ -11,9 +11,9 @@ void setup(){
   //size(1800, 1000);
   fullScreen();
   audioSetup();
-
   mainSetup();
   touchSetup();
+  segundaSetup();
 }
 
 void draw(){
@@ -39,6 +39,6 @@ void draw(){
 void mousePressed() {
   if (mouseButton == RIGHT) {
     print("aa");
-     lanzarParticulas(100, mouseX-width/2 , mouseY-height/2, random(10));
+     lanzarParticulas2(100, mouseX-width/2 , mouseY-height/2, random(10));
   }
 }

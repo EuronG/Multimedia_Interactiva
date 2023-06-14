@@ -7,12 +7,12 @@ class Particle {
   PVector prevPos;
   boolean active;
   
-  Particle(float x, float y, float colorsito, float maxSpeed) {
+  Particle(float x, float y, float colorsito, float maxSpeed, float xacc, float yacc) {
     //x = x + width/2 + random(10);
     //y = y + height/2 + random(10);
     pos = new PVector(x + width/2 + random(5), y + height/2 + random(5));
     vel = new PVector(0, 0);
-    acc = new PVector(x, y);
+    acc = new PVector(xacc, yacc);
     weight = 100;
     colore = colorsito;
     tamano = 0.15;

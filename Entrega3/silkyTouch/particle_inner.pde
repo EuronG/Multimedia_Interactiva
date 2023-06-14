@@ -6,7 +6,7 @@ class ParticleInner extends Particle{
   LinkedList<PVector> lista = new LinkedList<PVector>();
   
   ParticleInner(){
-    super(random(-10,10),random(-10,10), 0, sqrt(sq(posx)+sq(posy))*6);
+    super(random(-10,10),random(-10,10), 0, sqrt(sq(posx)+sq(posy))*6, random(-10,10), random(-10,10));
     lista.add(pos);
     for (int i=0; i<largo_lista-1;i++){
       lista.add(centro);
