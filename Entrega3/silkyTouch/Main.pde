@@ -38,7 +38,7 @@ void draw(){
 }
 void mousePressed() {
   if (mouseButton == RIGHT) {
-    print("aa");
      lanzarParticulas2(100, mouseX-width/2 , mouseY-height/2, random(10));
+     note.play();
   }
 }
