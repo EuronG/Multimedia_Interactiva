@@ -1,8 +1,9 @@
 import g4p_controls.*;
 
 GWindow guiWindow;
-GSlider slider;
+GSlider slider1;
 GButton button;
+float slider1Value;
 
 void segundaSetup(){
   // Crea la ventana de la GUI
@@ -10,7 +11,7 @@ void segundaSetup(){
   guiWindow.addDrawHandler(this, "windowDraw"); // Llama a la función "drawGUI" para dibujar en la ventana de la GUI
   
   // Crea un slider en la ventana de la GUI
-  slider = new GSlider(guiWindow, 50, 50, 200, 20, 10);
+  slider1 = new GSlider(guiWindow, 50, 50, 200, 20, 10);
   
   // Crea un botón en la ventana de la GUI
   button = new GButton(guiWindow, 100, 100, 100, 40, "Click Me");
@@ -19,28 +20,14 @@ void segundaSetup(){
 }
 
 public void windowDraw(PApplet app, GWinData data){
+  slider1Value = slider1.getValueF() * 100;
+  gatillos = slider1Value;
   app.background(0);
   app.strokeWeight(2);
-  app.fill(gatillos, 100, 100);
+  app.fill(slider1Value, 100, 100);
   app.rect(10,10,280,20);
-  // draw black line to current mouse position
-  app.stroke(0);
-  app.line(app.width / 2, app.height/2, app.mouseX, app.mouseY);
 }
 
-public void windowMouse(PApplet app, GWinData data, MouseEvent event) {
-    //if(event == MouseEvent.CLICK){
-      //  app.background(33);
-    //  }
-}
-
-void drawGUI(PGraphics pg) {
-  pg.background(0);
-  pg.fill(0);
-  //pg.noStroke();
-  pg.rect(50, 50, 100, 100);
-  // Resto del código para la ventana de la GUI
-}
 
 void buttonClicked(GButton source, GEvent event) {
   if (source == button && event == GEvent.CLICKED) {

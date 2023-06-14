@@ -5,7 +5,7 @@ void setup(){
  
   gpad = control.getMatchedDevice("gamepadXbox");  
   if (gpad == null) {
-    exit();
+    //exit();
   }
   
   //size(1800, 1000);

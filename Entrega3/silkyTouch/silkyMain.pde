@@ -21,10 +21,22 @@ void mainSetup(){
   background(10);
   xcircle = 0;
   ycircle = 0;
-  
 }
 
 public void getUserInput() {
+  if (gpad == null){
+    posx = map(mouseX - width/2, -width/2, width/2, -1, 1);
+    posy = map(mouseY - height/2, -height/2, height/2, -1, 1);
+    viewx = 0;
+    viewy = 0;
+    posz = 0;
+    
+    if (mouseButton == LEFT){
+      btA = true;
+    } else {
+      btA = false;}
+    return;
+  } 
   // Either button will dilate pupils
   //posx = map(gpad.getSlider("leftX").getValue(), -1, 1, -100, 100);
   posx = gpad.getSlider("leftX").getValue();
@@ -46,6 +58,7 @@ public void getUserInput() {
   }
   if (posz > 0.05) {
     gatillos = (gatillos + posz)%100;
+    slider1.setValue(gatillos/100);
   }
   if (abs(viewx) < 0.01) {
     viewx = 0;
