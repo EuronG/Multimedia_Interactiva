@@ -13,7 +13,7 @@ void audioSetup() {
 
   // create a new Amplitude analyzer
   analyzer = new Amplitude(this);
-  note = new SoundFile(this, "fuego.mp3");
+  note = new SoundFile(this, "fuegoF.mp3");
   noteA = new Amplitude(this);
 
   analyzer.input(input);
