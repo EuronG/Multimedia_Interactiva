@@ -32,11 +32,27 @@ void draw(){
   if (keyPressed && key == '3') {
     type=3;
   }
+  if (keyPressed && key == '4') {
+    type=4;
+  }
+  if (keyPressed && key == '5') {
+    type=5;
+  }
+  if (keyPressed && key == '6') {
+    type=6;
+  }
+  if (keyPressed && key == '7') {
+    type=7;
+  }
   audioDraw();
 }
 void mousePressed() {
   if (mouseButton == RIGHT) {
      lanzarParticulas2(100, mouseX-width/2 , mouseY-height/2, random(10));
-     note.play();
+     if (type==2){
+            note2.play();
+     }else{
+      note.play(); 
+     }
   }
 }

@@ -28,7 +28,7 @@ class Particle {
     pos.add(vel);
     acc.mult(0);
     
-    if (type==1) {
+    if (type==3) {
       oscillate(4,2.1);
       tamano = 0.25;
       slider2.setValue(tamano/2);
@@ -37,7 +37,29 @@ class Particle {
       oscillate(6,30);
       tamano = 0.5;
       slider2.setValue(tamano/2);
-    }if (type==999) {
+    }
+    if (type==4) {
+      oscillate(10,74);
+      tamano = 0.5;
+      slider2.setValue(tamano/2);
+    }
+    if (type==5) {
+      oscillate(69,420);
+      tamano = 0.5;
+      slider2.setValue(tamano/2);
+    }
+    if (type==6) {
+      oscillate(1,100);
+      tamano = 0.5;
+      slider2.setValue(tamano/2);
+    }
+    if (type==7) {
+      oscillate(random(20),random(100));
+      tamano = 0.5;
+      slider2.setValue(tamano/2);
+    }
+    
+    if (type==999) {
       oscillate(aud,5);
       tamano = 0.9;
       slider2.setValue(tamano/2);

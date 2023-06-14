@@ -30,14 +30,14 @@ class ParticleInner extends Particle{
       applyForce(new PVector(posx, posy).mult(0.1));
     }
   }
-   //<>//
+   //<>// //<>//
   void show() {
      stroke(gatillos, 100, 100);
      strokeWeight(0.5);
      lista.removeLast();
      lista.addFirst(pos);
      
-     PVector prev = lista.removeFirst(); //<>//
+     PVector prev = lista.removeFirst(); //<>// //<>//
      lista.addLast(prev.copy());
      for (int i = 0; i < lista.size() -1; i++){
       stroke(gatillos, 100, 100 - i*(100/largo_lista));

@@ -61,7 +61,7 @@ void touchDraw() {
     particle.follow(flowfield, scl, cols);
     particle.update();
     particle.edges();
-    particle.show(); //<>//
+    particle.show(); //<>// //<>//
   }
 
   // textFont(fr);
