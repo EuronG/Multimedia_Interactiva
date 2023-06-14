@@ -35,7 +35,7 @@ void audioDraw() {
   
   if (vol>0.7) {
     for (int i = -1; i <= 1; i++){
-        lanzarParticulas(100, i , i, vol*6);
+        lanzarParticulas(100, i , i, vol*random(25));
     }
   }
 }

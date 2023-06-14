@@ -36,3 +36,9 @@ void draw(){
   }
   audioDraw();
 }
+void mousePressed() {
+  if (mouseButton == RIGHT) {
+    print("aa");
+     lanzarParticulas(100, mouseX-width/2 , mouseY-height/2, random(10));
+  }
+}
