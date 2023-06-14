@@ -1,11 +1,13 @@
 int type;
+float tamano = 0.15;
 class Particle {
   PVector pos;
   PVector vel;
   PVector acc;
-  float maxspeed, weight, colore, tamano;
+  float maxspeed, weight, colore;
   PVector prevPos;
   boolean active;
+  
   
   Particle(float x, float y, float colorsito, float maxSpeed, float xacc, float yacc) {
     //x = x + width/2 + random(10);
@@ -15,7 +17,6 @@ class Particle {
     acc = new PVector(xacc, yacc);
     weight = 100;
     colore = colorsito;
-    tamano = 0.15;
     maxspeed = maxSpeed;
     active = true;
     prevPos = pos.copy();
@@ -30,13 +31,16 @@ class Particle {
     if (type==1) {
       oscillate(4,2.1);
       tamano = 0.25;
+      slider2.setValue(tamano/2);
     }
     if (type==2) {
       oscillate(6,30);
       tamano = 0.5;
+      slider2.setValue(tamano/2);
     }if (type==999) {
       oscillate(aud,5);
       tamano = 0.9;
+      slider2.setValue(tamano/2);
     }
     
     if (weight >= 0.5){

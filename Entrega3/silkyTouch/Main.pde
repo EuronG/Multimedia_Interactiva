@@ -4,9 +4,7 @@ void setup(){
   ControlIO control = ControlIO.getInstance(this);
  
   gpad = control.getMatchedDevice("gamepadXbox");  
-  if (gpad == null) {
-    //exit();
-  }
+
   
   //size(1800, 1000);
   fullScreen();
