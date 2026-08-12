@@ -1,0 +1,4 @@
+Analogo izquiero mueve la flecha (Minetras mas larga sea con mas fuerza se lanzan las particulas)
+Con el boton A se lanzan las particulas
+Analogo derecho cambia la dirección de las particulas activas
+Gataillo Izquierdo cambia color

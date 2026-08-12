@@ -8,7 +8,7 @@ function setup() {
   //Zona antes del setup
   frame = random(0, 10*PI);
   variframe = random(0.01, 0.05);
-  total = 15
+  total = 10
   total_esfera = 9;
   variacion = 20; //variacion puntos de esfera
   variacion1 = random(0, 40); //variacion de la curva, 0 es recta y 40 es muy curva
@@ -54,7 +54,7 @@ function setup() {
     puntos_linea.push([]);
     variacion2.push([]);
     for (let j = 0; j < total + 1; j++) {
-      puntos_linea[i].push(createVector(map(i, 0, total, 0, total_esfera), map(j, 0, total, 0, total_esfera)));
+      puntos_linea[i].push(createVector(map(i, 0, total, 0, total_esfera -1), map(j, 0, total, 0, total_esfera -1)));
       variacion2[i].push(createVector(random(-variacion1, variacion1), random(-variacion1, variacion1), random(-variacion1, variacion1)));
     }
   }
@@ -127,7 +127,7 @@ function draw() {
       strokeWeight(0.5);
       noFill();
       console.log(puntos_esfera)
-      //line(v.x, v.y, v.z, va2.x, va2.y, va2.z);
+      line(v.x, v.y, v.z, v2.x, v2.y, v2.z);
       //bezier(v.x, v.y, v.z, v.x + va2.x, v.y + va2.y, v.z + va2.z, v2.x + va2.x, v2.y + va2.y, v2.z + va2.z, v2.x, v2.y, v2.z);
     }
   }
